@@ -12,6 +12,7 @@
 }
 
 body{
+    overflow-x: hidden;
     background: #ddd;
 }
 
@@ -62,7 +63,7 @@ input, button{
 }
 
 .article-new-header{
-    font-size: 1.8rem;
+    font-size: 24px;
     margin-left: 8%;
 }
 
@@ -85,7 +86,7 @@ input, button{
 }
 
 .article-header{
-    font-size: 2rem;
+    font-size: 25px;
 }
 
 .article-content{
@@ -98,8 +99,41 @@ input, button{
     font-size: 1.1rem;
 }
 
+.nav{
+    background: #5670e9;
+    color: #fff;
+    width: 100%;
+    padding: 8px;
+    padding-left: 0;
+}
+
+.nav-item{
+    transition: 1s;
+    cursor: pointer;
+    background: #2e86e7;
+    font-weight: 700;
+    padding: 8px;
+    margin-right: 1px;
+}
+
+.nav-item:hover{
+    background: #2143e2;
+}
+
+.login-box{
+    position: absolute;
+    background: #fff;
+    width: 25%;
+    box-shadow: 3px 3px 5px #ccc;
+    border-bottom: 1px solid #2143e2;
+    padding: 8px;
+}
+
 @media only screen and (max-width: 700px) {
     .article-container{
         width: 100%;
+    }
+    .login-box{
+        width: 50%;
     }
 }

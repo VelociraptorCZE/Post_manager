@@ -21,18 +21,39 @@ window.onload = function(){
     function addEvents(id, target){
         var toggleButton = document.getElementById(id);
         var targetElem = document.getElementById(target);
-        if (document.addEventListener){
-            toggleButton.addEventListener("click", function(){
-                checkVisibility(targetElem, toggleButton);
-            });
-        }
-        else{
-            toggleButton.attachEvent("onclick", function(){
-                checkVisibility(targetElem, toggleButton);
-            });
+        if (toggleButton && targetElem){
+            if (document.addEventListener){
+                toggleButton.addEventListener("click", function(){
+                    checkVisibility(targetElem, toggleButton);
+                });
+            }
+            else{
+                toggleButton.attachEvent("onclick", function(){
+                    checkVisibility(targetElem, toggleButton);
+                });
+            }
         }
     }
 
+    function logout(id){
+        var logoutButton = document.getElementById(id);
+        var loc = window.location.href.toString().slice(0, window.location.href.toString().lastIndexOf("/")) + "/public/logout.php";
+        if (logoutButton){
+            if (document.addEventListener){
+                logoutButton.addEventListener("click", function(){
+                    window.location.replace(loc);
+                });
+            }
+            else{
+                logoutButton.attachEvent("onclick", function(){
+                    window.location.replace(loc);
+                });
+            }
+        }
+    }
+
+    logout("js-logout-btn");
     addEvents("js-form-btn", "js-form");
+    addEvents("js-login-box-btn", "js-login-box");
 };
 

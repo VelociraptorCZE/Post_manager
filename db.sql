@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Ned 21. říj 2018, 01:38
+-- Vytvořeno: Ned 21. říj 2018, 19:05
 -- Verze serveru: 10.1.35-MariaDB
 -- Verze PHP: 7.2.9
 
@@ -41,6 +41,25 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `title`, `text`) VALUES
 (1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet at commodi cupiditate dolorum eius, error iste magni quasi sit voluptatibus! Assumenda consequuntur cum dolor libero neque perferendis rem rerum');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(64) COLLATE utf16_czech_ci NOT NULL,
+  `pass` int(12) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf16 COLLATE=utf16_czech_ci;
+
+--
+-- Vypisuji data pro tabulku `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `pass`) VALUES
+(1, 'test', 6903654);
+
 --
 -- Klíče pro exportované tabulky
 --
@@ -52,6 +71,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Klíče pro tabulku `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pro tabulky
 --
 
@@ -59,6 +84,12 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT pro tabulku `posts`
 --
 ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pro tabulku `users`
+--
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 

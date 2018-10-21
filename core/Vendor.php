@@ -21,6 +21,15 @@ class Vendor
         mysqli_report(MYSQLI_REPORT_OFF);
     }
 
+    public function escape($string){
+        $patterns = array(array("/</", "&lt;"), array("/>/", "&gt;"), array('/"/', "&quot;"), array("/'/", "&apos;"));
+        $finalString = $string;
+        for ($i = 0; $i < count($patterns); $i++){
+            $finalString = preg_replace($patterns[$i][0], $patterns[$i][1], $finalString);
+        }
+        return $finalString;
+    }
+
     public function connect(){
         $db = new Db();
         return mysqli_connect(
